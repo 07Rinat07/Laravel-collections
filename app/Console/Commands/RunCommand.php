@@ -47,6 +47,13 @@ class RunCommand extends Command
 //        $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
 //        $anotherNameCollection = collect(['Ann', 'John']);
 
-       // $users = User::all();
+        $users = User::all();
+        $map = [];
+
+       $users->each(function ($user) use ($map){
+           $map[] = $user->name;
+       });
+
+        dd( memory_get_usage() / 1024 / 1024);
     }
 }
