@@ -81,8 +81,14 @@ class RunCommand extends Command
 //      });
 
 
-     $result =$nameCollection->first(); // Метод first возвращает первый элемент в коллекции, который подходит под заданное условие:
-
+     $result = $assocWorkerCollection->flatMap(function ($value) { //смысл в том что вернутся должен map массив
+        return [
+           [
+               'new_name' => $value[ 'name'],
+               'new_age' => $value[ 'age'],
+           ]
+        ] ;
+     });
      dd($result);
     }
 }
