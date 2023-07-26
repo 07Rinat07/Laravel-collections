@@ -58,7 +58,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $nameCollection->contains('Ivan'); // проверит существует ли Иван и выдаст true если есть
+     $result = $numberCollection->count(); // посчитает количество элем в массиве
      dd( $result);
     }
 }
