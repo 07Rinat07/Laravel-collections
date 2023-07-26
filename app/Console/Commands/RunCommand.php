@@ -81,7 +81,9 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $anotherNameCollection->only(['John']); //выборка  джoна только его одного
+     $result = $anotherNumberCollection->filter(function ($value) {
+         return $value % 10 === 0;
+     }); // вернется делимое на 10 без остатка
 
      dd($result);
     }
