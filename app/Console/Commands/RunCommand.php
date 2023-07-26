@@ -51,6 +51,24 @@ class RunCommand extends Command
                 'age' => 18
             ]
         ]);
+        $assocWorkerCollection1 = collect([
+            [
+                'Boris',
+                20
+            ],
+            [
+                'Ivan',
+                25
+            ],
+            [
+                'Elena',
+                18
+            ],
+            [
+            'Ivan',
+                19
+            ]
+        ]);
 
         $nameCollection = collect(['Ivan', 'Boris', 'Kate', 'Kate', 'Kate']);
 
@@ -63,7 +81,9 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $nameCollection->duplicates(); // покажет дубликаты
+     $result = $assocWorkerCollection1->eachSpread(function ($name, $age) {
+            dd($name, $age);
+         }); //
 
      dd($result);
     }
