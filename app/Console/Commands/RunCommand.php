@@ -26,34 +26,41 @@ class RunCommand extends Command
      */
     public function handle()
     {
-      //  $numberCollection = collect([1,2,3,4,5,6,7,8,9,10]);
-//        $anotherNumberCollection = collect([10,20,30,40,50]);
-//
-//        $assocWorkerCollection = collect([
-//            [
-//                'name' => 'Boris',
-//                'age' => 20
-//            ],
-//            [
-//                'name' => 'Ivan',
-//                'age' => 25
-//            ],
-//            [
-//                'name' => 'Elena',
-//                'age' => 18
-//            ]
+        $numberCollection = collect([1,2,3,4,5,6,7,8,9,10]);
+        $anotherNumberCollection = collect([10,20,30,324,50, 45]);
+
+//        $collection = collect([
+//           [1,2,3],
+//           [4,5,6],
+//           [7,8,9],
 //        ]);
-//
-//        $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
-//        $anotherNameCollection = collect(['Ann', 'John']);
 
-        $users = User::all();
-        $map = [];
+        $assocWorkerCollection = collect([
+            [
+                'name' => 'Boris',
+                'age' => 20
+            ],
+            [
+                'name' => 'Ivan',
+                'age' => 25
+            ],
+            [
+                'name' => 'Elena',
+                'age' => 18
+            ]
+        ]);
 
-       $users->each(function ($user) use ($map){
-           $map[] = $user->name;
-       });
+        $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
+        $anotherNameCollection = collect(['Ann', 'John']);
 
-        dd( memory_get_usage() / 1024 / 1024);
+//      User::chunk(100, function ($users) {
+//      });
+
+
+     $result =  $anotherNumberCollection->chunkWhile(function ($value, $key, $collection) {
+        return $value % 10 === 0;
+     });
+
+     dd( $result);
     }
 }
