@@ -26,7 +26,9 @@ class RunCommand extends Command
      */
     public function handle()
     {
-        $numberCollection = collect([1,2,3,4,5,6,7,8,9,10]);
+        $numberCollection = collect([1,2,3,4,5,6,7]);
+        $numberCollection2 = collect([5,6,7,8,9,10]);
+
         $anotherNumberCollection = collect([10,20,30,324,50, 45]);
 
         $collection = collect([
@@ -50,18 +52,19 @@ class RunCommand extends Command
             ]
         ]);
 
-        $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
+        $nameCollection = collect(['Ivan', 'Boris', 'Kate', 'Kate', 'Kate']);
 
         //$nameCollection2 = collect([20, 21, 18]);
 
-        $anotherNameCollection = collect(['Ann', 'John']);
+        $anotherNameCollection = collect(['Ann' => 'Boss', 'John' => 'Developer']);
+        $anotherNameCollection2 = collect(['Ann' => 'Designer', 'John' => 'Developer']);
 
 //      User::chunk(100, function ($users) {
 //      });
 
 
-     $result = $nameCollection->crossJoin($anotherNameCollection); // создает подмассив с элементов по очереди....элемент с элементом
+     $result = $nameCollection->duplicates(); // покажет дубликаты
 
-     dd( $result);
+     dd($result);
     }
 }
