@@ -51,14 +51,14 @@ class RunCommand extends Command
         ]);
 
         $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
-        $nameCollection2 = collect(['20', '21', '18']);
+        $nameCollection2 = collect([20, 21, 18]);
         $anotherNameCollection = collect(['Ann', 'John']);
 
 //      User::chunk(100, function ($users) {
 //      });
 
 
-     $result = $nameCollection->combine($nameCollection2);
+     $result = $nameCollection->concat([20, 21, 18]); //обьединяет массив
 
      dd( $result);
     }
