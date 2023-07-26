@@ -81,7 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $anotherNameCollection->except(['John']); //выборка всех кроме джoна
+     $result = $anotherNameCollection->only(['John']); //выборка  джoна только его одного
 
      dd($result);
     }
