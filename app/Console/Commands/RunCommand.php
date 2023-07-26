@@ -81,9 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $assocWorkerCollection1->eachSpread(function ($name, $age) {
-            dd($name, $age);
-         }); //
+     $result = $anotherNameCollection->except(['John']); //выборка всех кроме джoна
 
      dd($result);
     }
