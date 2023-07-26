@@ -81,9 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $anotherNumberCollection->filter(function ($value) {
-         return $value % 10 === 0;
-     }); // вернется делимое на 10 без остатка
+     $result =$nameCollection->first(); // Метод first возвращает первый элемент в коллекции, который подходит под заданное условие:
 
      dd($result);
     }
