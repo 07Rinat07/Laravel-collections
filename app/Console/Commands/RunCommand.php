@@ -58,8 +58,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $nameCollection->concat([20, 21, 18]); //обьединяет массив
-
+     $result = $nameCollection->contains('Ivan'); // проверит существует ли Иван и выдаст true если есть
      dd( $result);
     }
 }
