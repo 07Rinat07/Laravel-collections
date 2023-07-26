@@ -51,16 +51,16 @@ class RunCommand extends Command
         ]);
 
         $nameCollection = collect(['Ivan', 'Boris', 'Kate']);
-        $nameCollection2 = collect([20, 21, 18]);
+
+        //$nameCollection2 = collect([20, 21, 18]);
+
         $anotherNameCollection = collect(['Ann', 'John']);
 
 //      User::chunk(100, function ($users) {
 //      });
 
 
-     $result = $anotherNumberCollection->countBy(function ($value) {
-         return $value % 10 === 0; // в примере посчитает в массиве то что делится на 10
-     });
+     $result = $nameCollection->crossJoin($anotherNameCollection); // создает подмассив с элементов по очереди....элемент с элементом
 
      dd( $result);
     }
