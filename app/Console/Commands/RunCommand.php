@@ -58,7 +58,10 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $numberCollection->count(); // посчитает количество элем в массиве
+     $result = $anotherNumberCollection->countBy(function ($value) {
+         return $value % 10 === 0; // в примере посчитает в массиве то что делится на 10
+     });
+
      dd( $result);
     }
 }
