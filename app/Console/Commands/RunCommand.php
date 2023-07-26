@@ -29,11 +29,11 @@ class RunCommand extends Command
         $numberCollection = collect([1,2,3,4,5,6,7,8,9,10]);
         $anotherNumberCollection = collect([10,20,30,324,50, 45]);
 
-//        $collection = collect([
-//           [1,2,3],
-//           [4,5,6],
-//           [7,8,9],
-//        ]);
+        $collection = collect([
+           [1,2,3],
+           [4,5,6],
+           [7,8,9],
+        ]);
 
         $assocWorkerCollection = collect([
             [
@@ -57,9 +57,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result =  $anotherNumberCollection->chunkWhile(function ($value, $key, $collection) {
-        return $value % 10 === 0;
-     });
+     $result =  $collection->collapse(); //обьединит в один массив
 
      dd( $result);
     }
