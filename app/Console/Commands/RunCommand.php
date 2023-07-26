@@ -81,14 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $assocWorkerCollection->flatMap(function ($value) { //смысл в том что вернутся должен map массив
-        return [
-           [
-               'new_name' => $value[ 'name'],
-               'new_age' => $value[ 'age'],
-           ]
-        ] ;
-     });
+     $result = $numberCollection->forPage(2,4); // pagination
      dd($result);
     }
 }
