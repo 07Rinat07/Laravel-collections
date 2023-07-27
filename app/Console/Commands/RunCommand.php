@@ -73,6 +73,7 @@ class RunCommand extends Command
         ]);
 
         $nameCollection = collect(['Ivan', 'Boris', 'Kate', 'Kate', 'Kate']);
+        $nameCollection2 = collect(['Tima', 'Pavel', 'Alex', 'Maria', 'Valeria', 'Arnold', 'Richard', 'Milana']);
 
         //$nameCollection2 = collect([20, 21, 18]);
 
@@ -80,19 +81,10 @@ class RunCommand extends Command
         $anotherNameCollection2 = collect(['Ann' => 'Designer', 'John' => 'Developer']);
 
 
+        // $users = User::all();
 
-
-       // $users = User::all();
-
-
-
-        Collection::macro('toUpper', function () {
-            return $this->map(function ($value) {
-               return Str::upper($value);
-            });
-        });
-
-        $result = $nameCollection->toUpper(); // метод этот и все это обычно прописывают в appServiceProvider
+        $result = $nameCollection2->mapInto(Person::class);
+        // с использованием Person class
         dd($result);
     }
 }
