@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 class RunCommand extends Command
 {
@@ -77,26 +79,20 @@ class RunCommand extends Command
         $anotherNameCollection = collect(['Ann' => 'Boss', 'John' => 'Developer']);
         $anotherNameCollection2 = collect(['Ann' => 'Designer', 'John' => 'Developer']);
 
-        $users = User::all();
-        // 19.76 потратил памяти в мегабайт
-        // 21.9 потратил памяти в мегабайт после доп операций
-        // 22.14 после этих же операций для преобразования в лези
-        // 22.14 после этих же операций после лези
 
-        $users->lazy()
-        ->filter(function ($value) {
-            return $value->name = strtoupper($value->name);
-        })->filter
-            (function ($value) {
-            return $value->age = $value->age + 15;
+
+
+       // $users = User::all();
+
+
+
+        Collection::macro('toUpper', function () {
+            return $this->map(function ($value) {
+               return Str::upper($value);
+            });
         });
 
-
-
-        dd(memory_get_usage() / 1024 / 1024);
-
-
-        $result = $anotherNameCollection->lazy(); // преобразует коллекцию в lazy
+        $result = $nameCollection->toUpper(); // метод этот и все это обычно прописывают в appServiceProvider
         dd($result);
     }
 }
