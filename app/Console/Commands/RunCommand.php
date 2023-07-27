@@ -81,7 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $numberCollection->forPage(2,4); // pagination
+     $result = $anotherNameCollection->get('Ann'); // return значения е этого ключа
      dd($result);
     }
 }
