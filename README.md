@@ -17,3 +17,5 @@
 * php artisan config:clear
 * php artisan cache:clear
 * php artisan optimize
+### Link LARAVEL COLLECTION -->
+  https://laravel.com/docs/10.x/collections#main-content
