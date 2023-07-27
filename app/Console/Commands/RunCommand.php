@@ -81,7 +81,7 @@ class RunCommand extends Command
 //      });
 
 
-     $result = $anotherNameCollection->get('Ann'); // return значения е этого ключа
+     $result = $assocWorkerCollection->groupBy('name'); // выборка-прогуппирует по значению например по айди или годам итд
      dd($result);
     }
 }
